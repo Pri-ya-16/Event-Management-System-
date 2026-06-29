@@ -1,0 +1,12 @@
+model Student {
+  id            Int          @id @default(autoincrement())
+  name          String
+  rollNo        String       @unique
+  email         String       @unique
+  password      String
+
+  departmentId  Int?
+  department    Department?  @relation(fields: [departmentId], references: [id])
+
+  registrations Registration[]
+}
